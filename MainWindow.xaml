@@ -5,21 +5,28 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BookHub"
         mc:Ignorable="d"
-        Title="BookHub" Height="900" Width="1600"
-        MaxHeight="900" MaxWidth="1600"
-        MinHeight="900" MinWidth="1600"
+        Title="BookHub" Height="700" Width="1200"
+        MaxHeight="700" MaxWidth="1200"
+        MinHeight="700" MinWidth="1200"
         >
 
     <Window.Resources>
         <Style TargetType="TextBlock">
             <Setter Property="Margin" Value="10"/>
-            <Setter Property="FontSize" Value="32"/>
+            <Setter Property="FontSize" Value="18"/>
             <Setter Property="HorizontalAlignment" Value="Left"/>
             <Setter Property="VerticalAlignment" Value="Center"/>
         </Style>
         <Style TargetType="TextBox">
             <Setter Property="Margin" Value="10"/>
-            <Setter Property="FontSize" Value="32"/>
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="HorizontalAlignment" Value="Stretch"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="IsEnabled" Value="False"/>
+        </Style>
+        <Style TargetType="Button">
+            <Setter Property="Margin" Value="10"/>
+            <Setter Property="FontSize" Value="16"/>
             <Setter Property="HorizontalAlignment" Value="Stretch"/>
             <Setter Property="VerticalAlignment" Value="Center"/>
         </Style>
@@ -28,6 +35,8 @@
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="40"/>
+            <RowDefinition/>
+            <RowDefinition/>
             <RowDefinition/>
             <RowDefinition/>
             <RowDefinition/>
@@ -50,34 +59,85 @@
             <ColumnDefinition/>
             <ColumnDefinition/>
             <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
             <ColumnDefinition Width="40"/>
         </Grid.ColumnDefinitions>
         
         <!--책 정보-->
         <TextBlock Grid.Row="1"
-                   Grid.Column="1"
+                   Grid.Column="4"
                    Text="book name :"
                    />
         <TextBox   Grid.Row="1"
-                   Grid.Column="2"
+                   Grid.Column="5"
                    d:Text="name"
                    />
         <TextBlock Grid.Row="2"
-                   Grid.Column="1"
+                   Grid.Column="4"
                    Text="pages :"
                    />
         <TextBox   Grid.Row="2"
-                   Grid.Column="2"
+                   Grid.Column="5"
                    d:Text="786p"
                    />
         <TextBlock Grid.Row="3"
-                   Grid.Column="1"
-                   Text="book author :"
+                   Grid.Column="4"
+                   Text="User ID :"
                    />
         <TextBox   Grid.Row="3"
+                   Grid.Column="5"
+                   d:Text="1"
+                   />
+        
+        <!--도서관 정보-->
+        <TextBlock Grid.Row="1"
+                   Grid.Column="1"
+                   Text="book total :"
+                   />
+        <TextBlock Grid.Row="1"
                    Grid.Column="2"
-                   d:Text="John"
+                   d:Text="12"
+                   />
+        <TextBlock Grid.Row="2"
+                   Grid.Column="1"
+                   Text="user total :"
+                   />
+        <TextBlock Grid.Row="2"
+                   Grid.Column="2"
+                   d:Text="6"
+                   />
+        <TextBlock Grid.Row="3"
+                   Grid.Column="1"
+                   Text="borrowed :"
+                   />
+        <TextBlock Grid.Row="3"
+                   Grid.Column="2"
+                   d:Text="3"
                    />
 
+        <!--버튼-->
+        <Button Grid.Row="1"
+                Grid.Column="7"
+                Content="Loan"
+                />
+        <Button Grid.Row="3"
+                Grid.Column="7"
+                Content="Return"
+                />
+        
+        <!--리스트-->
+        <ListBox Grid.Row="6"
+                 Grid.Column="1"
+                 Grid.RowSpan="9"
+                 Grid.ColumnSpan="4"
+                 Margin="10"
+                 />
+        <ListBox Grid.Row="6"
+                 Grid.Column="5"
+                 Grid.RowSpan="9"
+                 Grid.ColumnSpan="4"
+                 Margin="10"
+                 />
     </Grid>
 </Window>
