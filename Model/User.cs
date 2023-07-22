@@ -13,10 +13,6 @@ namespace BookHub.Model
         private string name;
         private string email;
 
-        public User()
-        {
-            //TODO mySQL에서 가져오는 코드
-        }
         public int Id { get { return id; } }
         public int Age { get { return age; } }
         public string Name { get { return name; } }
