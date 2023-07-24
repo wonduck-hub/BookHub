@@ -13,6 +13,14 @@ namespace BookHub.Model
         private string name;
         private string email;
 
+        public User(int id, int age, string name, string email)
+        {
+            this.id = id;
+            this.age = age;
+            this.name = name;
+            this.email = email;
+        }
+
         public int Id { get { return id; } }
         public int Age { get { return age; } }
         public string Name { get { return name; } }

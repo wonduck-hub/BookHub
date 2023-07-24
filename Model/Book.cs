@@ -1,12 +1,24 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace BookHub.Model
 {
-    internal class Book
+    public class Book
     {
+        private int pages;
+
+        private string name;
+        private string authorName;
+        private bool isBookBorrowed;
+
+        public int Pages { get { return pages; } }
+        public string Name { get { return name; } }
+        public string AuthorName { get { return authorName; } }
+        public bool IsBookBorrowed { get { return isBookBorrowed; } set { isBookBorrowed = value; } }
+
     }
 }
