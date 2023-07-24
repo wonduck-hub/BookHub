@@ -13,12 +13,20 @@ namespace BookHub.Model
 
         private string name;
         private string authorName;
-        private bool isBookBorrowed;
+        private sbyte isBookBorrowed;
+
+        public Book(string name, string authorName, int pages, sbyte isBookBorrowed)
+        {
+            this.name = name;
+            this.authorName = authorName;
+            this.pages = pages;
+            this.isBookBorrowed = isBookBorrowed;
+        }
 
         public int Pages { get { return pages; } }
         public string Name { get { return name; } }
         public string AuthorName { get { return authorName; } }
-        public bool IsBookBorrowed { get { return isBookBorrowed; } set { isBookBorrowed = value; } }
+        public sbyte IsBookBorrowed { get { return isBookBorrowed; } set { isBookBorrowed = value; } }
 
     }
 }

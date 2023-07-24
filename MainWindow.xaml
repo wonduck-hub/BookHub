@@ -127,17 +127,29 @@
                 />
         
         <!--리스트-->
-        <ListBox Grid.Row="6"
-                 Grid.Column="1"
-                 Grid.RowSpan="9"
-                 Grid.ColumnSpan="4"
-                 Margin="10"
-                 />
-        <ListBox Grid.Row="6"
-                 Grid.Column="5"
-                 Grid.RowSpan="9"
-                 Grid.ColumnSpan="4"
-                 Margin="10"
-                 />
+        <ListView ItemsSource="{Binding BookItem}"
+                  Grid.Row="6"
+                  Grid.Column="1"
+                  Grid.RowSpan="9"
+                  Grid.ColumnSpan="4"
+                  Margin="10"
+                  >
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Name" Width="200" DisplayMemberBinding="{Binding Name}"/>
+                    <GridViewColumn Header="authorName" Width="100" DisplayMemberBinding="{Binding AuthorName}"/>
+                    <GridViewColumn Header="Pages" Width="50" DisplayMemberBinding="{Binding Pages}"/>
+                    <GridViewColumn Header="IsBookBorrowed" Width="100" DisplayMemberBinding="{Binding IsBookBorrowed}"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <ListView Grid.Row="6"
+                  Grid.Column="5"
+                  Grid.RowSpan="9"
+                  Grid.ColumnSpan="4"
+                  Margin="10"
+                  >
+            
+        </ListView>
     </Grid>
 </Window>

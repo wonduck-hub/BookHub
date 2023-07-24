@@ -11,15 +11,16 @@ namespace BookHub.Model
     public class UserRepository
     {
         private List<User> users = new List<User>();
-        static string strConnect = "Server=localhost:3306;Database=booklibrary;Uid=root;Pwd=4569;";
+        static string strConnect = "Server=127.0.0.1;Port=3306;Database=booklibrary;Uid=root;Pwd=4569;";
         static MySqlConnection connection = new MySqlConnection(strConnect);
 
         public UserRepository()
         {
-            string sql = "SELECT * FROM user";
-            connection.Open();
             try
             {
+                string sql = "SELECT * FROM user";
+                connection.Open();
+
                 MySqlCommand cmd = new MySqlCommand(sql, connection);
                 MySqlDataReader dr = cmd.ExecuteReader();
 
