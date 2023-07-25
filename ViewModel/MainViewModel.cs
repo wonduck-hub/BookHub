@@ -9,39 +9,35 @@ using System.Threading.Tasks;
 
 namespace BookHub.ViewModel
 {
-    internal class MainViewModel : INotifyPropertyChanged
+    internal class MainViewModel : BindableBase
     {
         private BookRepository bookR = new BookRepository();
-        private IEnumerable<Book> bookItem;
+        private List<Book> bookItem;
+        private UserRepository userR = new UserRepository();
+        private List<User> userItem;
+        
         public MainViewModel()
         {
             bookItem = bookR.GetBooks();
+            userItem = userR.GetUsers();
         }
 
-        public IEnumerable<Book> BookItem
+        public List<Book> BookItem
         {
             get { return bookItem; }
             set 
             {
-            
+                //TODO 선택시 내용 변경되는 코드
+            }
+        }
+        public List <User> UserItem
+        {
+            get { return userItem; }
+            set
+            {
+
             }
         }
 
-        public event PropertyChangedEventHandler PropertyChanged;
-        protected bool SetProperty<T>(ref T storage, T value, [CallerMemberName] string propertyName = null)
-        {
-            if (object.Equals(storage, value))
-                return false;
-            storage = value;
-            OnPropertyChanged(propertyName);
-            return true;
-        }
-        protected void OnPropertyChanged(string propertyName)
-        {
-            if(PropertyChanged != null)
-            {
-                PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-            }
-        }
     }
 }

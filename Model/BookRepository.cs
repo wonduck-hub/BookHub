@@ -35,7 +35,7 @@ namespace BookHub.Model
             connection.Close();
         }
 
-        public IEnumerable<Book> GetBooks()
+        public List<Book> GetBooks()
         {
             return books;
         }
