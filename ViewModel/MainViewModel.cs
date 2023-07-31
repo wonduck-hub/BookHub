@@ -6,20 +6,30 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
 
 namespace BookHub.ViewModel
 {
-    internal class MainViewModel : BindableBase
+    public class MainViewModel : BindableBase
     {
         private BookRepository bookR = new BookRepository();
         private List<Book> bookItem;
-        private UserRepository userR = new UserRepository();
-        private List<User> userItem;
+        private int bookTotal = 0;
+        private int totalBorrowedBookCount = 0;
+        private string bookName = string.Empty;
         
         public MainViewModel()
         {
             bookItem = bookR.GetBooks();
-            userItem = userR.GetUsers();
+            bookTotal = bookItem.Count;
+            foreach (Book book in bookItem)
+            {
+                //TODO IsBookBorrowed를 bool형으로 수정
+                if (book.IsBookBorrowed)
+                {
+                    totalBorrowedBookCount++;
+                }
+            }
         }
 
         public List<Book> BookItem
@@ -30,14 +40,13 @@ namespace BookHub.ViewModel
                 //TODO 선택시 내용 변경되는 코드
             }
         }
-        public List <User> UserItem
+        public int BookTotal
         {
-            get { return userItem; }
-            set
-            {
-
-            }
+            get { return bookTotal; }
         }
-
+        public int TotalBorrowedBookCount
+        {
+            get { return totalBorrowedBookCount; }
+        }
     }
 }

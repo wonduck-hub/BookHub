@@ -26,7 +26,7 @@ namespace BookHub.Model
 
                 while (dr.Read())
                 {
-                    users.Add(new User((int)dr["id"], (int)dr["Age"], (string)dr["Name"], (string)dr["Email"]));
+                    users.Add(new User((int)dr["id"], (int)dr["Age"], (string)dr["Name"], (string)dr["Email"], (int)dr["borrowedBooksCount"]));
                 }
             }
             catch (MySqlException e)
