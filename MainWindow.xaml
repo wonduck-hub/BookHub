@@ -11,6 +11,7 @@
         >
 
     <Window.Resources>
+
         <Style TargetType="TextBlock">
             <Setter Property="Margin" Value="10"/>
             <Setter Property="FontSize" Value="18"/>
@@ -74,6 +75,7 @@
                    Grid.Column="4"
                    Grid.ColumnSpan="2"
                    d:Text="name"
+                   Text="{Binding SearchTextName, Mode=TwoWay}"
                    IsEnabled="True"
                    />
         
@@ -100,39 +102,25 @@
         <!--버튼-->
         <Button Grid.Row="1"
                 Grid.Column="7"
-                Content="Search"
+                Grid.ColumnSpan="2"
+                Content="Search by name"
+                Command="{Binding SearchNameCommand}"
                 />
         
         <!--리스트-->
-        <ListView ItemsSource="{Binding BookItem}"
+        <ListView ItemsSource="{Binding SearchBookItem, Mode=OneWay}"
                   Grid.Row="6"
                   Grid.Column="1"
                   Grid.RowSpan="9"
-                  Grid.ColumnSpan="4"
+                  Grid.ColumnSpan="8"
                   Margin="10"
                   >
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Header="Name" Width="200" DisplayMemberBinding="{Binding Name}"/>
-                    <GridViewColumn Header="authorName" Width="100" DisplayMemberBinding="{Binding AuthorName}"/>
-                    <GridViewColumn Header="Pages" Width="50" DisplayMemberBinding="{Binding Pages}"/>
-                    <GridViewColumn Header="IsBookBorrowed" Width="100" DisplayMemberBinding="{Binding IsBookBorrowed}"/>
-                </GridView>
-            </ListView.View>
-        </ListView>
-        <ListView Grid.Row="6"
-                  Grid.Column="5"
-                  Grid.RowSpan="9"
-                  Grid.ColumnSpan="4"
-                  Margin="10"
-                  ItemsSource="{Binding }"
-                  >
-            <ListView.View>
-                <GridView>
-                    <GridViewColumn Header="Name" Width="200" DisplayMemberBinding="{Binding Name}"/>
-                    <GridViewColumn Header="authorName" Width="100" DisplayMemberBinding="{Binding AuthorName}"/>
-                    <GridViewColumn Header="Pages" Width="50" DisplayMemberBinding="{Binding Pages}"/>
-                    <GridViewColumn Header="IsBookBorrowed" Width="100" DisplayMemberBinding="{Binding IsBookBorrowed}"/>
+                    <GridViewColumn Header="Name" Width="400" DisplayMemberBinding="{Binding Name}"/>
+                    <GridViewColumn Header="authorName" Width="300" DisplayMemberBinding="{Binding AuthorName}"/>
+                    <GridViewColumn Header="Pages" Width="100" DisplayMemberBinding="{Binding Pages}"/>
+                    <GridViewColumn Header="IsBookBorrowed" Width="150" DisplayMemberBinding="{Binding IsBookBorrowed}"/>
                 </GridView>
             </ListView.View>
         </ListView>
