@@ -89,15 +89,6 @@
                    d:Text="12"
                    Text="{Binding BookTotal}"
                    />
-        <TextBlock Grid.Row="2"
-                   Grid.Column="1"
-                   Text="borrowed :"
-                   />
-        <TextBlock Grid.Row="2"
-                   Grid.Column="2"
-                   d:Text="3"
-                   Text="{Binding TotalBorrowedBookCount}"
-                   />
 
         <!--버튼-->
         <Button Grid.Row="1"
@@ -106,7 +97,13 @@
                 Content="Search by name"
                 Command="{Binding SearchNameCommand}"
                 />
-        
+        <Button Grid.Row="2"
+                Grid.Column="7"
+                Grid.ColumnSpan="2"
+                Content="Search by author"
+                Command="{Binding SearchAuthorCommand}"
+                />
+
         <!--리스트-->
         <ListView ItemsSource="{Binding SearchBookItem, Mode=OneWay}"
                   Grid.Row="6"

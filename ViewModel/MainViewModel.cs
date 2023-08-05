@@ -18,7 +18,7 @@ namespace BookHub.ViewModel
         private ObservableCollection<Book> searchBookItem = new ObservableCollection<Book>();
         private int bookTotal = 0;
         private int totalBorrowedBookCount = 0;
-        private string searchNameText = "modern";
+        private string searchNameText = string.Empty;
         
         public MainViewModel()
         {
@@ -34,9 +34,12 @@ namespace BookHub.ViewModel
                 }
             }
             this.SearchNameCommand = new DelegateCommand(ExecuteSearchName);
+            this.SearchAuthorCommand = new DelegateCommand(ExecuteSearchAuthor);
         }
 
         public IDelegateCommand SearchNameCommand { get; protected set; }
+        public IDelegateCommand SearchAuthorCommand { get; protected set; }
+
         void ExecuteSearchName(object param)
         {
             //TODO 나중에 해쉬검색으로 수정
@@ -58,6 +61,29 @@ namespace BookHub.ViewModel
                 }
             }
         }
+
+        void ExecuteSearchAuthor(object param)
+        {
+            //TODO 나중에 해쉬검색으로 수정
+            if (SearchTextName == string.Empty || SearchTextName == "")
+            {
+                SearchBookItem = BookItem;
+            }
+            else
+            {
+                if (SearchBookItem.Count > 0)
+                    SearchBookItem.Clear();
+
+                for (int i = 0; i < BookItem.Count; ++i)
+                {
+                    if (BookItem[i].AuthorName.Contains(SearchTextName, StringComparison.OrdinalIgnoreCase))
+                    {
+                        SearchBookItem.Add(BookItem[i]);
+                    }
+                }
+            }
+        }
+
         public ObservableCollection<Book> BookItem
         {
             get { return bookItem; }
